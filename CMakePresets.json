@@ -1,0 +1,61 @@
+{
+  "version": 3,
+  "configurePresets": [
+      {
+        "name": "all-common",
+        "hidden": true,
+        "generator": "Ninja",
+        "environment": {
+          "NOVELDA_PIPELINE_ARTIFACTS": "$env{NOVELDA_ROOT}/pipeline-artifacts"
+        }
+
+      },
+      {
+      "name": "SignalFlow_darwin-x64-debug",
+      "displayName": "SignalFlow Darwin x64 Debug",
+      "description": "Target Mac.",
+      "inherits": [ "all-common" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": {
+          "type": "PATH",
+          "value": "$env{SW_PLAYGROUND_OUTPUT_ROOT}/build/install_Debug"
+        },
+        "CMAKE_PREFIX_PATH": {
+          "type": "PATH",
+          "value": "$env{SW_PLAYGROUND_OUTPUT_ROOT}/build/install_Debug/lib/Novelda"
+        }
+      }
+    },
+    {
+      "name": "SignalFlow_darwin-x64-release",
+      "displayName": "SignalFlow Darwin x64 Release",
+      "description": "Target Mac.",
+      "inherits": [ "all-common" ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INSTALL_PREFIX": {
+          "type": "PATH",
+          "value": "$env{SW_PLAYGROUND_OUTPUT_ROOT}/build/install_Release"
+        },
+        "CMAKE_PREFIX_PATH": {
+          "type": "PATH",
+          "value": "$env{SW_PLAYGROUND_OUTPUT_ROOT}/build/install_Release/lib/Novelda"
+        }
+
+      }
+    }
+
+  ],
+  "buildPresets": [
+    {
+      "name": "SignalFlow_darwin-x64-debug",
+      "configurePreset": "SignalFlow_darwin-x64-debug"
+    },
+    {
+      "name": "SignalFlow_darwin-x64-release",
+      "configurePreset": "SignalFlow_darwin-x64-release"
+    }
+
+  ]
+}
