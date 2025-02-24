@@ -15,6 +15,7 @@
       "displayName": "SignalFlow Darwin x64 Debug",
       "description": "Target Mac.",
       "inherits": [ "all-common" ],
+      "binaryDir": "${sourceDir}/build-debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_INSTALL_PREFIX": {
@@ -25,6 +26,7 @@
           "type": "PATH",
           "value": "$env{SW_PLAYGROUND_OUTPUT_ROOT}/build/install_Debug/lib/Novelda"
         }
+
       }
     },
     {
@@ -32,6 +34,7 @@
       "displayName": "SignalFlow Darwin x64 Release",
       "description": "Target Mac.",
       "inherits": [ "all-common" ],
+      "binaryDir": "${sourceDir}/build-release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_INSTALL_PREFIX": {
